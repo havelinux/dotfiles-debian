@@ -77,4 +77,7 @@ if [ "$PS1" ] ; then
     export EDITOR="emacs -nw -q"
 
     PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+    PATH=$PATH:$HOME/.composer/vendor/bin # Add Composer to PATH
+ 	
 fi

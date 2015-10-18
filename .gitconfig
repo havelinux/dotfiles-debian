@@ -1,30 +1,31 @@
-[alias]
-  mrg = merge --no-ff
-
-[color]
-  branch = auto
-  diff = auto
-  status = auto
-
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-
-[color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
-
 [user]
-  name = Rodrigo García Suárez
-  email = rodrigo@simplelogica.net
-
-[branch "master"]
-  mergeoptions = --no-ff
+  name = abel verbo
+  email = havelinux@gmail.com
+[color]
+  ui = auto
+[core]
+  excludesfile = /home/abel/.dotfiles/.gitignore
+  #editor = subl -w
+[apply]
+  whitespace = nowarn
+[branch]
+  autosetuprebase = always
+[grep]
+  lineNumber = true
+[log]
+  date = relative
+  decorate = short
+[merge]
+  ff = false
+[github]
+  user = havelinux
+[credential]
+  helper = osxkeychain
+[help]
+  autocorrect = 1
+[alias]
+  ignore = update-index --assume-unchanged
+  unignore = update-index --no-assume-unchanged
+  ignored = !git ls-files -v | grep "^[[:lower:]]"
+  standup = !"git log --reverse --branches --since=$(if [[ "Mon" == "$(date +%a)" ]]; then echo "last friday"; else echo "yesterday"; fi) --author=$(git config --get user.email) --format=format:'%C(cyan) %ad %C(yellow)%h %Creset %s %Cgreen%d' --date=local"
+  lg = !"git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)an>%Creset' --abbrev-commit"

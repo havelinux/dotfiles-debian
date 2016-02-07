@@ -73,11 +73,13 @@ if [ "$PS1" ] ; then
     # Load RVM into a shell session *as a function*
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-    # Se establece GNU/Emacs como editor por defecto:
-    export EDITOR="emacs -nw -q"
+    # Se establece Atom como editor por defecto:
+    export EDITOR="atom"
 
     PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
     PATH=$PATH:$HOME/.composer/vendor/bin # Add Composer to PATH
+    
+    PATH=$PATH:$HOME/code/magento2/bin # Add Magento2 to PATH
  	
 fi

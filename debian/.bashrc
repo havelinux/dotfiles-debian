@@ -74,7 +74,7 @@ if [ "$PS1" ] ; then
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
     # Se establece Atom como editor por defecto:
-    export EDITOR="atom"
+    #export EDITOR="atom"
 
     PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 

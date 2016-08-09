@@ -4,3 +4,4 @@ m.farmacia.dev
 .ruby-version
 node_modules
 .tool-versions
+.idea

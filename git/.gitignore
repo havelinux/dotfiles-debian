@@ -3,3 +3,4 @@ m.farmacia.dev
 .ruby-gemset
 .ruby-version
 node_modules
+.tool-versions

@@ -81,5 +81,10 @@ if [ "$PS1" ] ; then
     PATH=$PATH:$HOME/.composer/vendor/bin # Add Composer to PATH
     
     PATH=$PATH:$HOME/code/magento2/bin # Add Magento2 to PATH
+
+    source "$HOME/.console/console.rc" 2>/dev/null
  	
+    . $HOME/.asdf/asdf.sh
+    . $HOME/.asdf/completions/asdf.bash
+
 fi

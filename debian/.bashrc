@@ -79,12 +79,17 @@ if [ "$PS1" ] ; then
     PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
     PATH=$PATH:$HOME/.composer/vendor/bin # Add Composer to PATH
-    
+
     PATH=$PATH:$HOME/code/magento2/bin # Add Magento2 to PATH
 
     source "$HOME/.console/console.rc" 2>/dev/null
- 	
+
     . $HOME/.asdf/asdf.sh
     . $HOME/.asdf/completions/asdf.bash
+
+    alias drush8e='$HOME/code/enforex/vendor/bin/drush --uri=enforex $@'
+    alias drush8d='$HOME/code/enforex/vendor/bin/drush --uri=donquijote $@'
+    alias drupale='$HOME/code/enforex/vendor/bin/drupal --uri=enforex $@'
+    alias drupald='$HOME/code/enforex/vendor/bin/drupal --uri=donquijote $@'
 
 fi

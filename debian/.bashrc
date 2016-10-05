@@ -89,6 +89,7 @@ if [ "$PS1" ] ; then
 
     alias drush8e='$HOME/code/enforex/vendor/bin/drush --uri=enforex $@'
     alias drush8d='$HOME/code/enforex/vendor/bin/drush --uri=donquijote $@'
+    alias drush8='$HOME/code/enforex/vendor/bin/drush $@'
     alias drupale='$HOME/code/enforex/vendor/bin/drupal --uri=enforex $@'
     alias drupald='$HOME/code/enforex/vendor/bin/drupal --uri=donquijote $@'
 

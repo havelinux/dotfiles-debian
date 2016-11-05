@@ -87,10 +87,18 @@ if [ "$PS1" ] ; then
     . $HOME/.asdf/asdf.sh
     . $HOME/.asdf/completions/asdf.bash
 
-    alias drush8e='$HOME/code/enforex/vendor/bin/drush --uri=enforex $@'
-    alias drush8d='$HOME/code/enforex/vendor/bin/drush --uri=donquijote $@'
+    alias drush8-enf='$HOME/code/enforex/vendor/bin/drush --uri=enforex $@'
+    alias drush8-dq='$HOME/code/enforex/vendor/bin/drush --uri=donquijote $@'
     alias drush8='$HOME/code/enforex/vendor/bin/drush $@'
-    alias drupale='$HOME/code/enforex/vendor/bin/drupal --uri=enforex $@'
-    alias drupald='$HOME/code/enforex/vendor/bin/drupal --uri=donquijote $@'
+    alias drupal-enf='$HOME/code/enforex/vendor/bin/drupal --uri=enforex $@'
+    alias drupal-dq='$HOME/code/enforex/vendor/bin/drupal --uri=donquijote $@'
+
+    docker-drupal-enf () {
+        (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drupal --uri=enforex $*")
+    }
+    docker-drupal-dq () {
+        (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drupal --uri=donquijote $*")
+    }
+
 
 fi

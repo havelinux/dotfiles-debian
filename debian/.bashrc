@@ -100,5 +100,25 @@ if [ "$PS1" ] ; then
         (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drupal --uri=donquijote $*")
     }
 
+    docker-mysql-enf () {
+        mysql -h127.0.0.1 -uroot -P3206 enforex;
+    }
+    docker-mysql-dq () {
+        mysql -h127.0.0.1 -uroot -P3206 donquijote;
+    }
+
+    docker-mysqlimport-enf () {
+        mysql -h127.0.0.1 -uroot -P3206 enforex < $@;
+    }
+    docker-mysqlimport-dq () {
+        mysql -h127.0.0.1 -uroot -P3206 donquijote < $@;
+    }
+
+    docker-mysqldump-enf () {
+        mysqldump -h127.0.0.1 -uroot -P3206 enforex > $@;
+    }
+    docker-mysqldump-dq () {
+        mysqldump -h127.0.0.1 -uroot -P3206 donquijote > $@;
+    }
 
 fi

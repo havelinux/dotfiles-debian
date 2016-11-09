@@ -100,6 +100,13 @@ if [ "$PS1" ] ; then
         (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drupal --uri=donquijote $*")
     }
 
+    docker-drush-enf () {
+        (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drush --uri=enforex $*")
+    }
+    docker-drush-dq () {
+        (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drush --uri=donquijote $*")
+    }
+
     docker-mysql-enf () {
         mysql -h127.0.0.1 -uroot -P3206 enforex;
     }

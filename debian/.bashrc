@@ -128,4 +128,13 @@ if [ "$PS1" ] ; then
         mysqldump -h127.0.0.1 -uroot -P3206 donquijote > $@;
     }
 
+    switch-docker () {
+        sed -i -e 's/127.0.0.1/mysql/g' $HOME/code/enforex/web/sites/enforex/settings.local.php
+        sed -i -e 's/127.0.0.1/mysql/g' $HOME/code/enforex/web/sites/donquijote/settings.local.php
+    }
+    switch-localhost () {
+        sed -i -e 's/mysql/127.0.0.1/g' $HOME/code/enforex/web/sites/enforex/settings.local.php
+        sed -i -e 's/mysql/127.0.0.1/g' $HOME/code/enforex/web/sites/donquijote/settings.local.php
+    }
+
 fi

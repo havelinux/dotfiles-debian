@@ -107,6 +107,13 @@ if [ "$PS1" ] ; then
         (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drush --uri=donquijote $*")
     }
 
+    docker-drush-enf-config-export () {
+        (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drush-config-export enforex ")
+    }
+    docker-drush-dq-config-export () {
+        (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drush-config-export donquijote ")
+    }
+
     docker-mysql-enf () {
         mysql -h127.0.0.1 -uroot -P3206 enforex;
     }

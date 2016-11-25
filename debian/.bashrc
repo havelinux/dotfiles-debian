@@ -151,4 +151,8 @@ if [ "$PS1" ] ; then
         sed -i -e 's/mysql/127.0.0.1/g' $HOME/code/enforex/web/sites/donquijote/settings.local.php
     }
 
+    # Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. 
+    # These include the gcloud, gsutil, and bq command line tools.
+    export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+
 fi

@@ -87,6 +87,10 @@ if [ "$PS1" ] ; then
     . $HOME/.asdf/asdf.sh
     . $HOME/.asdf/completions/asdf.bash
 
+    if [[ $TERMINIX_ID ]]; then
+        source /etc/profile.d/vte.sh
+    fi
+
     alias drush8-enf='$HOME/code/enforex/vendor/bin/drush --uri=enforex $@'
     alias drush8-dq='$HOME/code/enforex/vendor/bin/drush --uri=donquijote $@'
     alias drush8='$HOME/code/enforex/vendor/bin/drush $@'

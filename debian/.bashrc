@@ -111,20 +111,6 @@ if [ "$PS1" ] ; then
         (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drush --uri=donquijote $*")
     }
 
-    docker-drush-enf-config-export () {
-        (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drush-config-export enforex ")
-    }
-    docker-drush-dq-config-export () {
-        (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drush-config-export donquijote ")
-    }
-
-    docker-drush-enf-config-import () {
-        (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drush-config-import enforex ")
-    }
-    docker-drush-dq-config-import () {
-        (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drush-config-import donquijote ")
-    }
-
     docker-mysql-enf () {
         mysql -h127.0.0.1 -uroot -P3206 enforex;
     }
@@ -155,7 +141,7 @@ if [ "$PS1" ] ; then
         sed -i -e 's/mysql/127.0.0.1/g' $HOME/code/enforex/web/sites/donquijote/settings.local.php
     }
 
-    # Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. 
+    # Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform.
     # These include the gcloud, gsutil, and bq command line tools.
     export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 

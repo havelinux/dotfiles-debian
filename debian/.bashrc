@@ -98,38 +98,38 @@ if [ "$PS1" ] ; then
     alias drupal-dq='$HOME/code/enforex/vendor/bin/drupal --uri=donquijote $@'
 
     docker-drupal-enf () {
-        (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drupal --uri=enforex $*")
+        (cd $HOME/code/enforex/docker; docker exec -ti docker_enf-fpm_1 bash -c "cd web; ../vendor/bin/drupal --uri=enforex $*")
     }
     docker-drupal-dq () {
-        (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drupal --uri=donquijote $*")
+        (cd $HOME/code/enforex/docker; docker exec -ti docker_enf-fpm_1 bash -c "cd web; ../vendor/bin/drupal --uri=donquijote $*")
     }
 
     docker-drush-enf () {
-        (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drush --uri=enforex $*")
+        (cd $HOME/code/enforex/docker; docker exec -ti docker_enf-fpm_1 bash -c "cd web; ../vendor/bin/drush --uri=enforex $*")
     }
     docker-drush-dq () {
-        (cd $HOME/code/enforex/docker; docker-compose exec enforex bash -c "drush --uri=donquijote $*")
+        (cd $HOME/code/enforex/docker; docker exec -ti docker_enf-fpm_1 bash -c "cd web; ../vendor/bin/drush --uri=donquijote $*")
     }
 
     docker-mysql-enf () {
-        mysql -h127.0.0.1 -uroot -P3206 enforex;
+        mysql -h127.0.0.1 -uroot -prootdev -P3206 enforexdev;
     }
     docker-mysql-dq () {
-        mysql -h127.0.0.1 -uroot -P3206 donquijote;
+        mysql -h127.0.0.1 -uroot -prootdev -P3206 dqdev;
     }
 
     docker-mysqlimport-enf () {
-        mysql -h127.0.0.1 -uroot -P3206 enforex < $@;
+        mysql -h127.0.0.1 -uroot -prootdev -P3206 enforexdev < $@;
     }
     docker-mysqlimport-dq () {
-        mysql -h127.0.0.1 -uroot -P3206 donquijote < $@;
+        mysql -h127.0.0.1 -uroot -prootdev -P3206 dqdev < $@;
     }
 
     docker-mysqldump-enf () {
-        mysqldump -h127.0.0.1 -uroot -P3206 enforex > $@;
+        mysqldump -h127.0.0.1 -uroot -prootdev -P3206 enforexdev > $@;
     }
     docker-mysqldump-dq () {
-        mysqldump -h127.0.0.1 -uroot -P3206 donquijote > $@;
+        mysqldump -h127.0.0.1 -uroot -prootdev -P3206 dqdev > $@;
     }
 
     switch-docker () {
@@ -144,5 +144,7 @@ if [ "$PS1" ] ; then
     # Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform.
     # These include the gcloud, gsutil, and bq command line tools.
     export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+
+    source <(kubectl completion bash)
 
 fi

@@ -105,10 +105,10 @@ if [ "$PS1" ] ; then
     }
 
     docker-drush-enf () {
-        (cd $HOME/code/enforex/docker; docker-compose exec enf-fpm bash -c "./vendor/bin/drush --uri=enforex $*")
+        (cd $HOME/code/enforex/docker; docker-compose exec enf-fpm bash -c "cd web; ../vendor/bin/drush --uri=enforex $*")
     }
     docker-drush-dq () {
-        (cd $HOME/code/enforex/docker; docker-compose exec enf-fpm bash -c "./vendor/bin/drush --uri=donquijote $*")
+        (cd $HOME/code/enforex/docker; docker-compose exec enf-fpm bash -c "cd web; ../vendor/bin/drush --uri=donquijote $*")
     }
 
     docker-mysql-enf () {

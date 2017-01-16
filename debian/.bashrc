@@ -98,17 +98,17 @@ if [ "$PS1" ] ; then
     alias drupal-dq='$HOME/code/enforex/vendor/bin/drupal --uri=donquijote $@'
 
     docker-drupal-enf () {
-        (cd $HOME/code/enforex/docker; docker-compose exec enf-fpm bash -c "cd web; ../vendor/bin/drupal --uri=enforex $*")
+        (cd $HOME/code/enforex/docker-compose; docker-compose exec enf-fpm bash -c "cd web; ../vendor/bin/drupal --uri=enforex $*")
     }
     docker-drupal-dq () {
-        (cd $HOME/code/enforex/docker; docker-compose exec enf-fpm bash -c "cd web; ../vendor/bin/drupal --uri=donquijote $*")
+        (cd $HOME/code/enforex/docker-compose; docker-compose exec enf-fpm bash -c "cd web; ../vendor/bin/drupal --uri=donquijote $*")
     }
 
     docker-drush-enf () {
-        (cd $HOME/code/enforex/docker; docker-compose exec enf-fpm bash -c "cd web; ../vendor/bin/drush --uri=enforex $*")
+        (cd $HOME/code/enforex/docker-compose; docker-compose exec enf-fpm bash -c "cd web; ../vendor/bin/drush --uri=enforex $*")
     }
     docker-drush-dq () {
-        (cd $HOME/code/enforex/docker; docker-compose exec enf-fpm bash -c "cd web; ../vendor/bin/drush --uri=donquijote $*")
+        (cd $HOME/code/enforex/docker-compose; docker-compose exec enf-fpm bash -c "cd web; ../vendor/bin/drush --uri=donquijote $*")
     }
 
     docker-mysql-enf () {

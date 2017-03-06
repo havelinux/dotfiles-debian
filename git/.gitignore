@@ -5,3 +5,4 @@ m.farmacia.dev
 node_modules
 .tool-versions
 .idea
+.vscode

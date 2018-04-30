@@ -98,18 +98,26 @@ if [ "$PS1" ] ; then
     alias drupal-dq='$HOME/code/enforex/vendor/bin/drupal --uri=donquijote $@'
 
     docker-drupal-enf () {
-        (cd $HOME/code/enforex/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drupal --uri=enforex $*")
+        (cd $HOME/code/enforex.docker/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drupal --uri=enforex $*")
     }
     docker-drupal-dq () {
-        (cd $HOME/code/enforex/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drupal --uri=donquijote $*")
+        (cd $HOME/code/enforex.docker/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drupal --uri=donquijote $*")
+    }
+    docker-drupal-sp () {
+        (cd $HOME/code/san-prosper.docker/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drupal $*")
     }
 
+
     docker-drush-enf () {
-        (cd $HOME/code/enforex/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drush --uri=enforex $*")
+        (cd $HOME/code/enforex.docker/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drush --uri=enforex $*")
     }
     docker-drush-dq () {
-        (cd $HOME/code/enforex/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drush --uri=donquijote $*")
+        (cd $HOME/code/enforex.docker/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drush --uri=donquijote $*")
     }
+    docker-drush-sp () {
+        (cd $HOME/code/san-prosper.docker/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drush $*")
+    }
+
 
     docker-mysql-enf () {
         mysql -h127.0.0.1 -uroot -prootdev -P3206 enforexdev;
@@ -124,6 +132,10 @@ if [ "$PS1" ] ; then
     docker-mysqlimport-dq () {
         mysql -h127.0.0.1 -uroot -prootdev -P3206 dqdev < $@;
     }
+    docker-mysqlimport-sp () {
+        mysql -h127.0.0.1 -uroot -prootdev -P3206 drupalorexdev < $@;
+    }
+
 
     docker-mysqldump-enf () {
         mysqldump -h127.0.0.1 -uroot -prootdev -P3206 enforexdev > $@;
@@ -131,15 +143,10 @@ if [ "$PS1" ] ; then
     docker-mysqldump-dq () {
         mysqldump -h127.0.0.1 -uroot -prootdev -P3206 dqdev > $@;
     }
+    docker-mysqldump-sp () {
+        mysqldump -h127.0.0.1 -uroot -prootdev -P3206 drupalorexdev > $@;
+    }
 
-    switch-docker () {
-        sed -i -e 's/127.0.0.1/mysql/g' $HOME/code/enforex/web/sites/enforex/settings.local.php
-        sed -i -e 's/127.0.0.1/mysql/g' $HOME/code/enforex/web/sites/donquijote/settings.local.php
-    }
-    switch-localhost () {
-        sed -i -e 's/mysql/127.0.0.1/g' $HOME/code/enforex/web/sites/enforex/settings.local.php
-        sed -i -e 's/mysql/127.0.0.1/g' $HOME/code/enforex/web/sites/donquijote/settings.local.php
-    }
 
     # Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform.
     # These include the gcloud, gsutil, and bq command line tools.

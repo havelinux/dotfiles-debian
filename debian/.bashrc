@@ -71,82 +71,23 @@ if [ "$PS1" ] ; then
     fi
 
     # Load RVM into a shell session *as a function*
-    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+ #   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
     # Se establece Atom como editor por defecto:
     #export EDITOR="atom"
 
-    PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#    PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
     PATH=$PATH:$HOME/.composer/vendor/bin # Add Composer to PATH
 
-    PATH=$PATH:$HOME/code/magento2/bin # Add Magento2 to PATH
-
     source "$HOME/.console/console.rc" 2>/dev/null
 
-    . $HOME/.asdf/asdf.sh
-    . $HOME/.asdf/completions/asdf.bash
+#    . $HOME/.asdf/asdf.sh
+#    . $HOME/.asdf/completions/asdf.bash
 
     if [[ $TERMINIX_ID ]]; then
         source /etc/profile.d/vte.sh
     fi
-
-    alias drush8-enf='$HOME/code/enforex/vendor/bin/drush --uri=enforex $@'
-    alias drush8-dq='$HOME/code/enforex/vendor/bin/drush --uri=donquijote $@'
-    alias drush8='$HOME/code/enforex/vendor/bin/drush $@'
-    alias drupal-enf='$HOME/code/enforex/vendor/bin/drupal --uri=enforex $@'
-    alias drupal-dq='$HOME/code/enforex/vendor/bin/drupal --uri=donquijote $@'
-
-    docker-drupal-enf () {
-        (cd $HOME/code/enforex.docker/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drupal --uri=enforex $*")
-    }
-    docker-drupal-dq () {
-        (cd $HOME/code/enforex.docker/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drupal --uri=donquijote $*")
-    }
-    docker-drupal-sp () {
-        (cd $HOME/code/san-prosper.docker/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drupal $*")
-    }
-
-
-    docker-drush-enf () {
-        (cd $HOME/code/enforex.docker/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drush --uri=enforex $*")
-    }
-    docker-drush-dq () {
-        (cd $HOME/code/enforex.docker/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drush --uri=donquijote $*")
-    }
-    docker-drush-sp () {
-        (cd $HOME/code/san-prosper.docker/docker-compose; docker-compose exec fpm bash -c "cd web; ../vendor/bin/drush $*")
-    }
-
-
-    docker-mysql-enf () {
-        mysql -h127.0.0.1 -uroot -prootdev -P3206 enforexdev;
-    }
-    docker-mysql-dq () {
-        mysql -h127.0.0.1 -uroot -prootdev -P3206 dqdev;
-    }
-
-    docker-mysqlimport-enf () {
-        mysql -h127.0.0.1 -uroot -prootdev -P3206 enforexdev < $@;
-    }
-    docker-mysqlimport-dq () {
-        mysql -h127.0.0.1 -uroot -prootdev -P3206 dqdev < $@;
-    }
-    docker-mysqlimport-sp () {
-        mysql -h127.0.0.1 -uroot -prootdev -P3206 drupalorexdev < $@;
-    }
-
-
-    docker-mysqldump-enf () {
-        mysqldump -h127.0.0.1 -uroot -prootdev -P3206 enforexdev > $@;
-    }
-    docker-mysqldump-dq () {
-        mysqldump -h127.0.0.1 -uroot -prootdev -P3206 dqdev > $@;
-    }
-    docker-mysqldump-sp () {
-        mysqldump -h127.0.0.1 -uroot -prootdev -P3206 drupalorexdev > $@;
-    }
-
 
     # Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform.
     # These include the gcloud, gsutil, and bq command line tools.

@@ -4,7 +4,7 @@
 [color]
   ui = auto
 [core]
-  excludesfile = /home/abel/.dotfiles/git/.gitignore
+  excludesfile = /home/abel/dotfiles-debian/git/.gitignore
   #editor = subl -w
 [apply]
   whitespace = nowarn
@@ -20,7 +20,7 @@
 [github]
   user = havelinux
 [credential]
-  helper = osxkeychain
+	helper = cache
 [help]
   autocorrect = 1
 [alias]

@@ -7,7 +7,7 @@ if [ "$PS1" ] ; then
 
     # Color para grep y para el prompt:
     export TERM=xterm-color
-    export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+#    export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 
     # Muestra la rama de git en el prompt:
     function parse_git_dirty {
@@ -71,12 +71,12 @@ if [ "$PS1" ] ; then
     fi
 
     # Load RVM into a shell session *as a function*
- #   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
     # Se establece Atom como editor por defecto:
     #export EDITOR="atom"
 
-#    PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+    PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
     PATH=$PATH:$HOME/.composer/vendor/bin # Add Composer to PATH
 
